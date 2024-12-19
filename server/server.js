@@ -5,7 +5,7 @@ import cookieParser from "cookie-parser";
 import connectDB from "./config/mongodb.js";
 import authRouter from "./routes/authRoutes.js";
 import userRouter from "./routes/userRoutes.js";
-import testRoute from "./routes/testRoute.js";
+
 const app = express();
 
 const port = process.env.PORT || 4000;
@@ -19,12 +19,6 @@ app.use(express.urlencoded({ extended: true })); // To parse URL-encoded bodies
 app.use(cors({ origin: allowedOrigins, credentials: true }));
 // app.use(cors());
 connectDB();
-
-app.use("/api/auth/test", (req, res) => {
-  return res.json({
-    message: "Test pass",
-  });
-});
 
 app.use("/api/auth", authRouter);
 app.use("/api/user", userRouter);

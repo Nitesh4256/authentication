@@ -33,6 +33,7 @@ const EmailVerify = () => {
   const onSubmitHandler = async (e) => {
     try {
       e.preventDefault();
+      axios.defaults.withCredentials = true;
       const otpArray = inputRefs.current.map((e) => e.value);
       const otp = otpArray.join("");
 
@@ -54,7 +55,7 @@ const EmailVerify = () => {
 
   useEffect(() => {
     isLoggedin && userData && userData.isAccountVerified && navigate("/");
-  }, [isLoggedin, userData]);
+  }, [isLoggedin, userData, navigate]);
   return (
     <div
       className="flex items-center  justify-center min-h-screen 

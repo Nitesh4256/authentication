@@ -22,6 +22,7 @@ app.use(
     origin: "https://authentication-frontend-tqkt.onrender.com", // Replace with your frontend's URL
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
     allowedHeaders: ["Content-Type", "Authorization"],
+    credentials: true,
   })
 );
 

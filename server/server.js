@@ -12,7 +12,7 @@ const port = process.env.PORT || 4000;
 
 const allowedOrigins = [
   `http://localhost:5173`,
-  "https://authentication-frontend-tqkt.onrender.com",
+  "https://authentication-4cb4.onrender.com",
 ];
 app.use(express.json());
 app.use(cookieParser());

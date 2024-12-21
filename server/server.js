@@ -10,7 +10,10 @@ const app = express();
 
 const port = process.env.PORT || 4000;
 
-const allowedOrigins = [`http://localhost:5173`];
+const allowedOrigins = [
+  `http://localhost:5173`,
+  "https://authentication-frontend-tqkt.onrender.com",
+];
 app.use(express.json());
 app.use(cookieParser());
 // app.use(express.json()); // To parse JSON bodies
@@ -19,7 +22,7 @@ app.use(express.urlencoded({ extended: true })); // To parse URL-encoded bodies
 // app.use(cors({ origin: allowedOrigins, credentials: true }));
 app.use(
   cors({
-    origin: "https://authentication-frontend-tqkt.onrender.com", // Replace with your frontend's URL
+    origin: allowedOrigins, // Replace with your frontend's URL
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
     allowedHeaders: ["Content-Type", "Authorization"],
     credentials: true,

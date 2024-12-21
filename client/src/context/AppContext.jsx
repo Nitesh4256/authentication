@@ -51,7 +51,7 @@ import axios from "axios";
 import PropTypes from "prop-types";
 
 export const AppContextProvider = (props) => {
-  const backendUrl = "http://localhost:4000";
+  const backendUrl = "https://authentication-6pmb.onrender.com";
   const [isLoggedin, setIsLoggedin] = useState(false);
   const [userData, setUserData] = useState(false);
 

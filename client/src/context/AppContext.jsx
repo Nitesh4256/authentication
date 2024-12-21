@@ -5,11 +5,6 @@ export const AppContext = createContext();
 import { toast } from "react-toastify";
 import axios from "axios";
 export const AppContextProvider = (props) => {
-  // axios.defaults.withCredentials = true;
-<<<<<<< HEAD
-  // changes the backslash url which is givign error
-=======
->>>>>>> 4e7a920a709947b4894c10ca5de4e5dd0f8bc709
   const backendUrl = "https://authentication-backend-8liv.onrender.com";
   const [isLoggedin, setIsLoggedin] = useState(false);
   const [userData, setUserData] = useState(false);

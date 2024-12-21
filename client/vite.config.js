@@ -13,7 +13,7 @@ export default defineConfig({
   plugins: [react()],
   server: {
     proxy: {
-      "/api": "https://authentication-6pmb.onrender.com",
+      "/api": "https://authentication-b13b.onrender.com",
     },
   },
 });

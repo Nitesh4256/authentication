@@ -52,6 +52,7 @@ import PropTypes from "prop-types";
 
 export const AppContextProvider = (props) => {
   const backendUrl = "https://authentication-b13b.onrender.com";
+  // const backendUrl = "http://localhost:4000";
   const [isLoggedin, setIsLoggedin] = useState(false);
   const [userData, setUserData] = useState(false);
 
@@ -83,7 +84,7 @@ export const AppContextProvider = (props) => {
 
   useEffect(() => {
     getAuthState();
-  }, []);
+  }, [isLoggedin]);
 
   const value = {
     backendUrl,

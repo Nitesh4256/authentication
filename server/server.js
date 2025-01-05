@@ -13,7 +13,7 @@ const port = process.env.PORT || 4000;
 const allowedOrigins = [
   `http://localhost:5173`,
   // "https://authentication-frontend-i3lf.onrender.com",
-  "https://authentication-nine-flax.vercel.app",
+  "https://authentication-2494.onrender.com",
 ];
 app.use(express.json());
 app.use(cookieParser());

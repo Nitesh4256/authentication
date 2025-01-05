@@ -10,29 +10,31 @@ const app = express();
 
 const port = process.env.PORT || 4000;
 
-const allowedOrigins = [
-  `http://localhost:5173`,
-  // "https://authentication-frontend-i3lf.onrender.com",
-  "https://authentication-lemon-kappa.vercel.app",
-];
+// const allowedOrigins = [
+//   `http://localhost:5173`,
+//   // "https://authentication-frontend-i3lf.onrender.com",
+//   "https://authentication-lemon-kappa.vercel.app",
+// ];
 app.use(express.json());
 app.use(cookieParser());
 // app.use(express.json()); // To parse JSON bodies
 app.use(express.urlencoded({ extended: true })); // To parse URL-encoded bodies
 
 // app.use(cors({ origin: allowedOrigins, credentials: true }));
-app.use(
-  cors({
-    origin: allowedOrigins, // Replace with your frontend's URL
-    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-    allowedHeaders: ["Content-Type", "Authorization"],
-    credentials: true,
-  })
-);
+// app.use(
+//   cors({
+//     origin: allowedOrigins, // Replace with your frontend's URL
+//     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+//     allowedHeaders: ["Content-Type", "Authorization"],
+//     credentials: true,
+//   })
+// );
 
-// app.use(cors());
+app.use(cors());
 connectDB();
-
+app.use("/", (req, res) => {
+  res.send("hello from the server");
+});
 app.use("/api/auth", authRouter);
 app.use("/api/user", userRouter);
 app.listen(port, () => {

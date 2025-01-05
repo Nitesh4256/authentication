@@ -51,7 +51,9 @@ import axios from "axios";
 import PropTypes from "prop-types";
 
 export const AppContextProvider = (props) => {
-  const backendUrl = "https://authentication-b13b.onrender.com";
+  // const backendUrl = "https://authentication-b13b.onrender.com";
+  const backendUrl =
+    "https://authentication-79mq-4gcd6szys-nitesh4256s-projects.vercel.app";
   // const backendUrl = "http://localhost:4000";
   const [isLoggedin, setIsLoggedin] = useState(false);
   const [userData, setUserData] = useState(false);

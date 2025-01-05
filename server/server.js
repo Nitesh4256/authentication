@@ -30,7 +30,7 @@ app.use(
   })
 );
 
-app.use(cors());
+// app.use(cors());
 connectDB();
 app.get("/", (req, res) => {
   res.send("hello from the server");

@@ -11,7 +11,7 @@ const app = express();
 const port = process.env.PORT || 4000;
 
 const allowedOrigins = [
-  `http://localhost:5174`,
+  `http://localhost:5173`,
   "https://authentication-frontend-i3lf.onrender.com",
 ];
 app.use(express.json());

@@ -32,7 +32,7 @@ app.use(express.urlencoded({ extended: true })); // To parse URL-encoded bodies
 
 app.use(cors());
 connectDB();
-app.use("/", (req, res) => {
+app.get("/", (req, res) => {
   res.send("hello from the server");
 });
 app.use("/api/auth", authRouter);

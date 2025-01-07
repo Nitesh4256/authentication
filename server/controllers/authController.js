@@ -287,7 +287,30 @@ export const sendResetOtp = async (req, res) => {
     });
   }
 };
+export const verifyOtp = async (req, res) => {
+  const { otp, email } = req.body;
+  const user = await userModel.find({ email });
+  console.log("Otp", otp, email);
+  if (!otp) {
+    return res.status(201).json({
+      success: true,
+      message: "Otp is not found",
+    });
+  }
 
+  if (otp == user.verifyOtp) {
+    user.verifyOtp = 0;
+
+    return res.json({
+      success: true,
+      message: "otp is verify",
+    });
+  }
+  return res.json({
+    success: false,
+    message: "Otp Not match",
+  });
+};
 //  Reset user Password
 export const resetPassword = async (req, res) => {
   const { email, otp, newPassword } = req.body;

@@ -15,9 +15,9 @@ const allowedOrigins = [
   // "https://authentication-frontend-i3lf.onrender.com",
   "https://authentication-2494.onrender.com",
 ];
-app.use(express.json());
+// app.use(express.json());
 app.use(cookieParser());
-// app.use(express.json()); // To parse JSON bodies
+app.use(express.json()); // To parse JSON bodies
 app.use(express.urlencoded({ extended: true })); // To parse URL-encoded bodies
 
 // app.use(cors({ origin: allowedOrigins, credentials: true }));

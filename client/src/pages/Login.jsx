@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { assets } from "../assets/assets";
@@ -41,19 +41,22 @@ const Login = () => {
           email,
           password,
         });
+        console.log("data", data);
         if (data.success) {
           toast.success("success");
           setIsLoggedin(true);
           getUserData();
           navigate("/");
         } else {
-          toast.error(data);
+          toast.error(data.message);
+          console.log("check", data);
         }
       }
     } catch (error) {
       toast.error(error);
     }
   };
+  useEffect(() => {}, [state]);
   return (
     <div
       className="flex items-center  justify-center min-h-screen px-6

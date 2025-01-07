@@ -78,7 +78,7 @@ export const AppContextProvider = (props) => {
         getUserData();
       }
     } catch (error) {
-      console.log("error", error);
+      // console.log("error", error);
       toast.error(error.message);
     }
   };

@@ -84,7 +84,7 @@ export const AppContextProvider = (props) => {
   };
 
   useEffect(() => {
-    // getAuthState();
+    getAuthState();
   }, [isLoggedin]);
 
   const value = {

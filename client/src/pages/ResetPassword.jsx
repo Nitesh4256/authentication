@@ -18,6 +18,7 @@ const ResetPassword = () => {
   const { backendUrl } = useContext(AppContext);
   axios.defaults.withCredentials = true;
   const handleInput = (e, index) => {
+    console.log("handle Input", e, index);
     if (e.target.value.length > 0 && index < inputRefs.current.length - 1) {
       inputRefs.current[index + 1].focus();
     }
@@ -51,12 +52,25 @@ const ResetPassword = () => {
       toast.error(error.message);
     }
   };
+
   const onSubmitOTP = async (e) => {
     e.preventDefault();
 
-    const otpArray = inputRefs.current.map((e) => e.value);
-    setOtp(otpArray.join(""));
-    setIsOtpSubmited(true);
+    const otpArray = inputRefs.current.map((e) => e.value).join("");
+    setOtp(() => otpArray);
+    console.log("setotp", otpArray, otp);
+
+    const { data } = await axios.post(backendUrl + "/api/auth/verify-otp", {
+      email,
+      otp: otpArray,
+    });
+    data.success ? toast.success(data.message) : toast.error(data.message);
+    navigate("/login");
+    data.success && setIsOtpSubmited(true);
+    console.log("Submit", inputRefs.current.values);
+    console.log("otp arr", otpArray);
+
+    // setIsOtpSubmited(true);
   };
 
   const onSubmitNewPassword = async (e) => {

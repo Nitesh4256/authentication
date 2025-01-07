@@ -30,8 +30,9 @@ const Login = () => {
           getUserData();
           navigate("/");
         } else {
-          toast.error(data);
-          // console.log("data", data);
+          toast.error(data.message);
+          navigate("/");
+          console.log("data", data);
         }
 
         // eslint-disable-next-line no-empty
